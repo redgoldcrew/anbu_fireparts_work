@@ -30,11 +30,11 @@ const GaugeSVG = ({ isVisible }: { isVisible: boolean }) => (
         strokeWidth="20"
       />
       
-      {/* Safety Segments - Green (Safe) */}
+      {/* Safety Segments - Red (Alert) */}
       <path
         d="M40 190 A130 130 0 0 1 130 68"
         fill="none"
-        stroke="#1E8E5A"
+        stroke="#D32F2F"
         strokeLinecap="round"
         strokeWidth="20"
       />
@@ -48,11 +48,11 @@ const GaugeSVG = ({ isVisible }: { isVisible: boolean }) => (
         strokeWidth="20"
       />
       
-      {/* Safety Segments - Red (Alert) */}
+      {/* Safety Segments - Green (Safe) */}
       <path
         d="M210 68 A130 130 0 0 1 300 190"
         fill="none"
-        stroke="#D32F2F"
+        stroke="#1E8E5A"
         strokeLinecap="round"
         strokeWidth="20"
       />

@@ -1,213 +1,203 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 import { PRODUCTS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
-import { ChevronLeft, ChevronRight, Flame } from 'lucide-react'
+import { Flame } from 'lucide-react'
 
 const EDGE_PADDING = 'max(1rem,calc((100vw-80rem)/2+2rem))'
 
 export function Products() {
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const [canScrollLeft, setCanScrollLeft] = useState(false)
-  const [canScrollRight, setCanScrollRight] = useState(false)
+  const trackRef = useRef<HTMLDivElement>(null)
+  const [maxScroll, setMaxScroll] = useState(0)
   const [scrollProgress, setScrollProgress] = useState(0)
+  const [scrollLinked, setScrollLinked] = useState(true)
 
   const { ref, isVisible } = useIntersectionObserver({
-    threshold: 0.2,
+    threshold: 0.1,
     triggerOnce: true,
   })
 
-  const updateScrollState = useCallback(() => {
-    const el = scrollRef.current
-    if (!el) return
-
-    const maxScroll = el.scrollWidth - el.clientWidth
-    setCanScrollLeft(el.scrollLeft > 8)
-    setCanScrollRight(maxScroll > 8 && el.scrollLeft < maxScroll - 8)
-    setScrollProgress(maxScroll > 0 ? (el.scrollLeft / maxScroll) * 100 : 0)
+  useEffect(() => {
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const updateScrollMode = () => setScrollLinked(!motionQuery.matches)
+    updateScrollMode()
+    motionQuery.addEventListener('change', updateScrollMode)
+    return () => motionQuery.removeEventListener('change', updateScrollMode)
   }, [])
 
   useEffect(() => {
-    const el = scrollRef.current
-    if (!el) return
+    const track = trackRef.current
+    if (!track) return
 
-    updateScrollState()
+    const updateMaxScroll = () => {
+      setMaxScroll(Math.max(0, track.scrollWidth - window.innerWidth))
+    }
 
-    const resizeObserver = new ResizeObserver(updateScrollState)
-    resizeObserver.observe(el)
+    updateMaxScroll()
+    const resizeObserver = new ResizeObserver(updateMaxScroll)
+    resizeObserver.observe(track)
+    window.addEventListener('resize', updateMaxScroll)
 
-    return () => resizeObserver.disconnect()
-  }, [updateScrollState, isVisible])
+    return () => {
+      resizeObserver.disconnect()
+      window.removeEventListener('resize', updateMaxScroll)
+    }
+  }, [])
 
-  const scrollByCard = (direction: 'left' | 'right') => {
-    const el = scrollRef.current
-    if (!el) return
+  useEffect(() => {
+    if (!scrollLinked) return
 
-    const card = el.querySelector<HTMLElement>('[data-product-card]')
-    const gap = 24
-    const step = card ? card.offsetWidth + gap : 312
+    const section = ref.current
+    if (!section) return
 
-    el.scrollBy({
-      left: direction === 'left' ? -step : step,
-      behavior: 'smooth',
-    })
-  }
+    const handleScroll = () => {
+      const scrollable = section.offsetHeight - window.innerHeight
+      if (scrollable <= 0) {
+        setScrollProgress(0)
+        return
+      }
+
+      const scrolled = -section.getBoundingClientRect().top
+      setScrollProgress(Math.min(1, Math.max(0, scrolled / scrollable)))
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    }
+  }, [scrollLinked, maxScroll, ref])
+
+  const translateX = scrollProgress * maxScroll
 
   return (
     <section
       ref={ref}
       id="products"
-      className="py-16 sm:py-20 lg:py-24 bg-navy"
+      className="relative bg-navy"
+      style={
+        scrollLinked && maxScroll > 0
+          ? { height: `calc(100vh + ${maxScroll}px)` }
+          : undefined
+      }
     >
-      <div className="container-custom">
-        {/* Section Header */}
-        <div className="mb-12 lg:mb-16 text-center max-w-2xl mx-auto">
-          <p className={`section-kicker text-amber ${isVisible ? 'animate-reveal' : 'opacity-0'}`}>
-            Our Offerings
-          </p>
-          <h2
-            className={`font-['Oswald'] font-700 text-3xl sm:text-4xl lg:text-5xl text-cream mt-2 ${
-              isVisible ? 'animate-reveal' : 'opacity-0'
-            }`}
-            style={isVisible ? { animationDelay: '75ms' } : {}}
-          >
-            Product Range
-          </h2>
-          <p
-            className={`text-steel-gray text-base sm:text-lg leading-relaxed mt-4 ${
-              isVisible ? 'animate-reveal' : 'opacity-0'
-            }`}
-            style={isVisible ? { animationDelay: '150ms' } : {}}
-          >
-            Premium fire safety equipment and systems for every need.
-          </p>
-        </div>
-      </div>
-
-      {/* Full-bleed horizontal scroll */}
       <div
         className={cn(
-          'relative left-1/2 w-screen -translate-x-1/2',
-          isVisible ? 'animate-reveal' : 'opacity-0',
+          'flex flex-col overflow-hidden',
+          scrollLinked && maxScroll > 0
+            ? 'sticky top-0 h-screen'
+            : 'py-16 sm:py-20 lg:py-24',
         )}
-        style={isVisible ? { animationDelay: '225ms' } : {}}
       >
         <div
           className={cn(
-            'pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-24 bg-gradient-to-r from-navy to-transparent transition-opacity duration-300',
-            canScrollLeft ? 'opacity-100' : 'opacity-0',
-          )}
-          aria-hidden
-        />
-        <div
-          className={cn(
-            'pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-24 bg-gradient-to-l from-navy to-transparent transition-opacity duration-300',
-            canScrollRight ? 'opacity-100' : 'opacity-0',
-          )}
-          aria-hidden
-        />
-
-        <button
-          type="button"
-          onClick={() => scrollByCard('left')}
-          disabled={!canScrollLeft}
-          aria-label="Scroll products left"
-          className={cn(
-            'absolute left-2 sm:left-4 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-amber/30 bg-navy-accent/95 text-amber shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-amber/60 hover:bg-navy-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber',
-            canScrollLeft
-              ? 'opacity-100 translate-x-0'
-              : 'pointer-events-none opacity-0 -translate-x-2',
+            'container-custom shrink-0',
+            scrollLinked && maxScroll > 0 && 'pt-12 sm:pt-14',
           )}
         >
-          <ChevronLeft size={20} />
-        </button>
-
-        <button
-          type="button"
-          onClick={() => scrollByCard('right')}
-          disabled={!canScrollRight}
-          aria-label="Scroll products right"
-          className={cn(
-            'absolute right-2 sm:right-4 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-amber/30 bg-navy-accent/95 text-amber shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-amber/60 hover:bg-navy-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber',
-            canScrollRight
-              ? 'opacity-100 translate-x-0'
-              : 'pointer-events-none opacity-0 translate-x-2',
-          )}
-        >
-          <ChevronRight size={20} />
-        </button>
-
-        <div
-          ref={scrollRef}
-          onScroll={updateScrollState}
-          className="product-scroll flex gap-6 overflow-x-auto overscroll-x-contain scroll-smooth snap-x snap-proximity pb-2 pt-1"
-          style={{
-            paddingInline: EDGE_PADDING,
-            scrollPaddingInline: EDGE_PADDING,
-          }}
-        >
-          {PRODUCTS.map((product) => (
-            <div
-              key={product.id}
-              data-product-card
-              className="w-[min(18rem,calc(100vw-4rem))] flex-none snap-start sm:w-72"
+          <div className="mb-8 lg:mb-10 text-center max-w-2xl mx-auto">
+            <p className={`section-kicker text-amber ${isVisible ? 'animate-reveal' : 'opacity-0'}`}>
+              Our Offerings
+            </p>
+            <h2
+              className={`font-['Oswald'] font-700 text-3xl sm:text-4xl lg:text-5xl text-cream mt-2 ${
+                isVisible ? 'animate-reveal' : 'opacity-0'
+              }`}
+              style={isVisible ? { animationDelay: '75ms' } : {}}
             >
-              <div className="bg-navy-accent rounded-lg overflow-hidden border border-amber/20 hover:border-amber/40 transition-colors group h-full">
-                {/* Image Placeholder */}
-                <div className="bg-gradient-to-br from-amber/10 to-red/10 h-48 flex items-center justify-center group-hover:from-amber/20 group-hover:to-red/20 transition-colors">
-                  <div className="text-center">
-                    <Flame size={48} className="text-red/50 mx-auto mb-2" />
-                    <p className="text-sm text-steel-gray font-medium">
-                      {product.type}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6 space-y-4">
-                  <div className="flex items-baseline justify-between gap-2">
-                    <h3 className="font-['Oswald'] font-700 text-2xl text-amber">
-                      {product.capacity}
-                    </h3>
-                    <span className="text-xs font-mono px-2 py-1 bg-red text-cream rounded">
-                      {product.badge}
-                    </span>
-                  </div>
-
-                  <p className="text-sm text-steel-gray">
-                    {product.type}
-                  </p>
-
-                  <button className="w-full btn-primary py-2 text-sm">
-                    Get Details
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+              Product Range
+            </h2>
+            <p
+              className={`text-steel-gray text-base sm:text-lg leading-relaxed mt-4 ${
+                isVisible ? 'animate-reveal' : 'opacity-0'
+              }`}
+              style={isVisible ? { animationDelay: '150ms' } : {}}
+            >
+              Premium fire safety equipment and systems for every need.
+            </p>
+          </div>
         </div>
-      </div>
 
-      {/* Scroll progress */}
-      <div className="container-custom mt-6">
-        <div
-          className="mx-auto h-1 max-w-xs overflow-hidden rounded-full bg-navy-accent"
-          role="progressbar"
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-valuenow={Math.round(scrollProgress)}
-          aria-label="Product scroll progress"
-        >
+        <div className="relative left-1/2 flex min-h-0 w-screen flex-1 -translate-x-1/2 items-center">
           <div
-            className="h-full rounded-full bg-amber/70 transition-[width] duration-150 ease-out"
-            style={{ width: `${scrollProgress}%` }}
-          />
+            className={cn(
+              'w-full',
+              scrollLinked ? 'overflow-hidden' : 'product-scroll overflow-x-auto pb-2',
+              isVisible ? 'animate-reveal' : 'opacity-0',
+            )}
+            style={isVisible ? { animationDelay: '225ms' } : {}}
+          >
+            <div
+              ref={trackRef}
+              className="flex w-max gap-6"
+              style={{
+                paddingInline: EDGE_PADDING,
+                transform: scrollLinked ? `translate3d(-${translateX}px, 0, 0)` : undefined,
+                willChange: scrollLinked ? 'transform' : undefined,
+              }}
+            >
+              {PRODUCTS.map((product) => (
+                <div
+                  key={product.id}
+                  className="w-[min(18rem,calc(100vw-4rem))] flex-none sm:w-72"
+                >
+                  <div className="bg-navy-accent rounded-lg overflow-hidden border border-amber/20 hover:border-amber/40 transition-colors group h-full">
+                    <div className="bg-gradient-to-br from-amber/10 to-red/10 h-48 flex items-center justify-center group-hover:from-amber/20 group-hover:to-red/20 transition-colors">
+                      <div className="text-center">
+                        <Flame size={48} className="text-red/50 mx-auto mb-2" />
+                        <p className="text-sm text-steel-gray font-medium">
+                          {product.type}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="p-6 space-y-4">
+                      <div className="flex items-baseline justify-between gap-2">
+                        <h3 className="font-['Oswald'] font-700 text-2xl text-amber">
+                          {product.capacity}
+                        </h3>
+                        <span className="text-xs font-mono px-2 py-1 bg-red text-cream rounded">
+                          {product.badge}
+                        </span>
+                      </div>
+
+                      <p className="text-sm text-steel-gray">
+                        {product.type}
+                      </p>
+
+                      <button className="w-full btn-primary py-2 text-sm">
+                        Get Details
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-        <p className="mt-3 text-center text-sm text-steel-gray">
-          Swipe or use arrows to explore
-        </p>
+
+        {scrollLinked && maxScroll > 0 && (
+          <div className="container-custom shrink-0 pb-8 pt-4">
+            <div
+              className="mx-auto h-1 max-w-xs overflow-hidden rounded-full bg-navy-accent"
+              role="progressbar"
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={Math.round(scrollProgress * 100)}
+              aria-label="Product scroll progress"
+            >
+              <div
+                className="h-full rounded-full bg-amber/70"
+                style={{ width: `${scrollProgress * 100}%` }}
+              />
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )
