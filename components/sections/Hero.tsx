@@ -98,7 +98,7 @@ export function Hero() {
     <section
       ref={ref}
       id="hero"
-      className="relative pt-12 pb-20 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-32 bg-gradient-to-br from-navy via-navy to-navy-accent text-white overflow-hidden technical-dot-pattern"
+      className="relative pt-12 pb-20 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-32 bg-navy text-white overflow-hidden"
     >
 
       <div className="container-custom relative z-10">
