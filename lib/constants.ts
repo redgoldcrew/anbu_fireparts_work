@@ -2,7 +2,7 @@
 export const COMPANY = {
   name: 'Anbu Fire Part Works',
   legalName: 'ANBALAGAN GOHILAVANI',
-  shortName: 'Anbu Fire',
+  shortName: 'Anbu Fire Part Works',
   tagline: 'Fully Certified Turnkey Fire Safety & Engineering Solutions',
   description: 'Comprehensive fire safety solutions serving all over Tamil Nadu',
 }

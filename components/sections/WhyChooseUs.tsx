@@ -30,7 +30,7 @@ export function WhyChooseUs() {
             }`}
             style={isVisible ? { animationDelay: '75ms' } : {}}
           >
-            Why Choose Anbu Fire
+            Why Choose Anbu Fire Part Works
           </h2>
           <p
             className={`text-steel-gray text-base sm:text-lg leading-relaxed mt-4 ${
