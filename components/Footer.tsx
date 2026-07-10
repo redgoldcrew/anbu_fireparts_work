@@ -101,7 +101,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} {COMPANY.name}. All rights reserved. |{' '}
             Protecting Lives, Securing Properties. | Website by{' '}
             <a
-              href="https://github.com/redgoldcrew"
+              href="https://redgoldcrew.in/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-amber hover:underline"
