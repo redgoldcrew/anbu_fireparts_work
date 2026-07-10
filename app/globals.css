@@ -6,20 +6,18 @@
   --font-oswald: 'Oswald', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
   
-  --color-navy: #2E3239;
-  --color-navy-accent: #3A4049;
-  --color-navy-deep: #1F2329;
-  --color-red: #D9251F;
-  --color-red-dark: #B51E19;
-  --color-silver: #B7BBC0;
-  --color-silver-muted: #8E9399;
-  --color-cream: #F0F1F4;
-  --color-steel-gray: #6E737C;
+  --color-navy: #15171D;
+  --color-navy-accent: #1E222B;
+  --color-red: #DC2626;
+  --color-red-dark: #A31515;
+  --color-silver: #9CA3AF;
+  --color-cream: #F5F5F7;
+  --color-steel-gray: #6B7280;
   --color-green: #1E8E5A;
-  --color-ink: #2E3239;
+  --color-ink: #15171D;
   
-  --color-background: #F0F1F4;
-  --color-foreground: #2E3239;
+  --color-background: #F5F5F7;
+  --color-foreground: #15171D;
   
   --radius: 0.375rem;
 }
@@ -29,13 +27,15 @@
 }
 
 html {
-  background-color: #F0F1F4;
+  background-color: #F5F5F7;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @layer base {
   body {
     @apply bg-cream text-ink antialiased;
+    overflow-x: hidden;
   }
   
   button {
@@ -49,17 +49,17 @@ html {
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 rounded-md font-semibold text-base transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 bg-red text-white hover:bg-red-dark;
+    @apply px-5 py-3 rounded-md font-semibold text-sm sm:text-base transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 bg-red text-white hover:bg-red-dark;
     outline-color: var(--color-silver);
   }
   
   .btn-secondary {
-    @apply px-6 py-3 rounded-md font-semibold text-base transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 bg-navy text-white hover:bg-navy-accent;
+    @apply px-5 py-3 rounded-md font-semibold text-sm sm:text-base transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 bg-navy text-white hover:bg-navy-accent;
     outline-color: var(--color-silver);
   }
   
   .btn-outline {
-    @apply px-6 py-3 rounded-md font-semibold text-base transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 border-2 border-red text-red hover:bg-red hover:text-white;
+    @apply px-5 py-3 rounded-md font-semibold text-sm sm:text-base transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 border-2 border-red text-red hover:bg-red hover:text-white;
     outline-color: var(--color-red);
   }
   
@@ -69,7 +69,7 @@ html {
   
   .hazard-tape {
     @apply h-[14px] w-full;
-    background: repeating-linear-gradient(45deg, #D9251F 0px, #D9251F 10px, #1F2329 10px, #1F2329 20px);
+    background: repeating-linear-gradient(45deg, #DC2626 0px, #DC2626 10px, #15171D 10px, #15171D 20px);
   }
   
   .section-kicker {
@@ -122,8 +122,8 @@ html {
   }
   
   .technical-dot-pattern {
-    background-image: radial-gradient(#ffffff14 1px, transparent 0);
-    background-size: 26px 26px;
+    background-image: radial-gradient(rgba(156, 163, 175, 0.28) 1px, transparent 1px);
+    background-size: 22px 22px;
   }
   
   .glow-red {
@@ -131,22 +131,12 @@ html {
   }
   
   .glow-red:hover {
-    box-shadow: 0 0 20px rgba(217, 37, 31, 0.35);
-  }
-  
-  .badge-stamp {
-    border: 2px dashed var(--color-silver);
-    transition: all 0.3s ease;
-  }
-  
-  .badge-stamp:hover {
-    transform: rotate(5deg) scale(1.05);
-    border-style: solid;
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.35);
   }
 
   .product-scroll {
     scrollbar-width: thin;
-    scrollbar-color: rgba(183, 187, 192, 0.5) rgba(58, 64, 73, 0.85);
+    scrollbar-color: rgba(156, 163, 175, 0.5) rgba(30, 34, 43, 0.85);
     -webkit-overflow-scrolling: touch;
   }
 
@@ -155,18 +145,18 @@ html {
   }
 
   .product-scroll::-webkit-scrollbar-track {
-    background: rgba(58, 64, 73, 0.85);
+    background: rgba(30, 34, 43, 0.85);
     border-radius: 9999px;
     margin-inline: max(1rem, calc((100vw - 80rem) / 2 + 2rem));
   }
 
   .product-scroll::-webkit-scrollbar-thumb {
-    background: rgba(183, 187, 192, 0.45);
+    background: rgba(156, 163, 175, 0.45);
     border-radius: 9999px;
   }
 
   .product-scroll::-webkit-scrollbar-thumb:hover {
-    background: rgba(183, 187, 192, 0.75);
+    background: rgba(156, 163, 175, 0.75);
   }
 }
 

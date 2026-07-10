@@ -13,6 +13,7 @@ export function Products() {
   const [maxScroll, setMaxScroll] = useState(0)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [scrollLinked, setScrollLinked] = useState(true)
+  const [isMobile, setIsMobile] = useState(false)
 
   const { ref, isVisible } = useIntersectionObserver({
     threshold: 0.1,
@@ -21,10 +22,18 @@ export function Products() {
 
   useEffect(() => {
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const updateScrollMode = () => setScrollLinked(!motionQuery.matches)
+    const mobileQuery = window.matchMedia('(max-width: 767px)')
+    const updateScrollMode = () => {
+      setScrollLinked(!motionQuery.matches)
+      setIsMobile(mobileQuery.matches)
+    }
     updateScrollMode()
     motionQuery.addEventListener('change', updateScrollMode)
-    return () => motionQuery.removeEventListener('change', updateScrollMode)
+    mobileQuery.addEventListener('change', updateScrollMode)
+    return () => {
+      motionQuery.removeEventListener('change', updateScrollMode)
+      mobileQuery.removeEventListener('change', updateScrollMode)
+    }
   }, [])
 
   useEffect(() => {
@@ -47,7 +56,7 @@ export function Products() {
   }, [])
 
   useEffect(() => {
-    if (!scrollLinked) return
+    if (!scrollLinked || isMobile) return
 
     const section = ref.current
     if (!section) return
@@ -71,8 +80,9 @@ export function Products() {
       window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('resize', handleScroll)
     }
-  }, [scrollLinked, maxScroll, ref])
+  }, [scrollLinked, isMobile, maxScroll, ref])
 
+  const useScrollLink = scrollLinked && !isMobile && maxScroll > 0
   const translateX = scrollProgress * maxScroll
 
   return (
@@ -81,7 +91,7 @@ export function Products() {
       id="products"
       className="relative bg-navy"
       style={
-        scrollLinked && maxScroll > 0
+        useScrollLink
           ? { height: `calc(100vh + ${maxScroll}px)` }
           : undefined
       }
@@ -89,15 +99,15 @@ export function Products() {
       <div
         className={cn(
           'flex flex-col overflow-hidden',
-          scrollLinked && maxScroll > 0
+          useScrollLink
             ? 'sticky top-0 h-screen'
-            : 'py-16 sm:py-20 lg:py-24',
+            : 'py-12 sm:py-20 lg:py-24',
         )}
       >
         <div
           className={cn(
             'container-custom shrink-0',
-            scrollLinked && maxScroll > 0 && 'pt-12 sm:pt-14',
+            useScrollLink && 'pt-10 sm:pt-14',
           )}
         >
           <div className="mb-8 lg:mb-10 text-center max-w-2xl mx-auto">
@@ -123,28 +133,28 @@ export function Products() {
           </div>
         </div>
 
-        <div className="relative left-1/2 flex min-h-0 w-screen flex-1 -translate-x-1/2 items-center">
+        <div className="relative left-1/2 flex min-h-0 w-full max-w-[100vw] flex-1 -translate-x-1/2 items-center overflow-hidden">
           <div
             className={cn(
               'w-full',
-              scrollLinked ? 'overflow-hidden' : 'product-scroll overflow-x-auto pb-2',
+              useScrollLink ? 'overflow-hidden' : 'product-scroll overflow-x-auto pb-3 snap-x snap-mandatory',
               isVisible ? 'animate-reveal' : 'opacity-0',
             )}
             style={isVisible ? { animationDelay: '225ms' } : {}}
           >
             <div
               ref={trackRef}
-              className="flex w-max gap-6"
+              className="flex w-max gap-4 sm:gap-6"
               style={{
                 paddingInline: EDGE_PADDING,
-                transform: scrollLinked ? `translate3d(-${translateX}px, 0, 0)` : undefined,
-                willChange: scrollLinked ? 'transform' : undefined,
+                transform: useScrollLink ? `translate3d(-${translateX}px, 0, 0)` : undefined,
+                willChange: useScrollLink ? 'transform' : undefined,
               }}
             >
               {PRODUCTS.map((product) => (
                 <div
                   key={product.id}
-                  className="w-[min(18rem,calc(100vw-4rem))] flex-none sm:w-72"
+                  className="w-[min(16rem,calc(100vw-3rem))] flex-none snap-center sm:w-72"
                 >
                   <div className="bg-navy-accent rounded-lg overflow-hidden border border-silver/20 hover:border-silver/40 transition-colors group h-full">
                     <div className="bg-gradient-to-br from-silver/10 to-red/10 h-48 flex items-center justify-center group-hover:from-silver/20 group-hover:to-red/20 transition-colors">
@@ -181,8 +191,14 @@ export function Products() {
           </div>
         </div>
 
-        {scrollLinked && maxScroll > 0 && (
-          <div className="container-custom shrink-0 pb-8 pt-4">
+        {!useScrollLink && (
+          <p className="container-custom mt-3 shrink-0 text-center text-xs text-steel-gray sm:hidden">
+            Swipe to browse products →
+          </p>
+        )}
+
+        {useScrollLink && (
+          <div className="container-custom shrink-0 pb-6 pt-4 sm:pb-8">
             <div
               className="mx-auto h-1 max-w-xs overflow-hidden rounded-full bg-navy-accent"
               role="progressbar"

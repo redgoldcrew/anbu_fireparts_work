@@ -25,7 +25,7 @@ const GaugeSVG = ({ isVisible }: { isVisible: boolean }) => (
       <path
         d="M40 190 A130 130 0 0 1 300 190"
         fill="none"
-        stroke="#6E737C"
+        stroke="#6B7280"
         strokeLinecap="round"
         strokeWidth="20"
       />
@@ -34,7 +34,7 @@ const GaugeSVG = ({ isVisible }: { isVisible: boolean }) => (
       <path
         d="M40 190 A130 130 0 0 1 130 68"
         fill="none"
-        stroke="#D9251F"
+        stroke="#DC2626"
         strokeLinecap="round"
         strokeWidth="20"
       />
@@ -43,7 +43,7 @@ const GaugeSVG = ({ isVisible }: { isVisible: boolean }) => (
       <path
         d="M130 68 A130 130 0 0 1 210 68"
         fill="none"
-        stroke="#B7BBC0"
+        stroke="#9CA3AF"
         strokeLinecap="round"
         strokeWidth="20"
       />
@@ -98,7 +98,7 @@ export function Hero() {
     <section
       ref={ref}
       id="hero"
-      className="relative pt-12 pb-20 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-32 bg-navy text-white overflow-hidden"
+      className="relative pt-12 pb-20 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-32 bg-navy text-white overflow-hidden technical-dot-pattern"
     >
 
       <div className="container-custom relative z-10">
@@ -109,7 +109,7 @@ export function Hero() {
               <p className="section-kicker text-silver">
                 Complete Fire Safety Solutions
               </p>
-              <h1 className="font-['Oswald'] font-700 text-4xl sm:text-5xl lg:text-6xl text-white mt-2 leading-tight text-balance">
+              <h1 className="font-['Oswald'] font-700 text-3xl text-white mt-2 leading-tight text-balance sm:text-5xl lg:text-6xl">
                 Professional Fire Safety
                 <span className="text-silver"> & Engineering</span>
               </h1>
@@ -127,35 +127,35 @@ export function Hero() {
 
             {/* Stats Grid */}
             <div
-              className={`grid grid-cols-3 gap-4 pt-4 ${
+              className={`grid grid-cols-1 gap-3 pt-4 min-[420px]:grid-cols-3 min-[420px]:gap-4 ${
                 isVisible ? 'animate-reveal' : 'opacity-0'
               }`}
               style={isVisible ? { animationDelay: '150ms' } : {}}
             >
               {HERO_STATS.map((stat) => (
-                <div key={stat.number} className="bg-navy-accent/50 rounded-lg p-4 backdrop-blur-sm">
-                  <div className="text-2xl font-['Oswald'] font-700 text-red">
+                <div key={stat.number} className="bg-navy-accent rounded-lg p-3 sm:p-4">
+                  <div className="text-xl font-['Oswald'] font-700 text-red sm:text-2xl">
                     {stat.number}
                   </div>
                   <div className="text-xs text-white/70 uppercase font-semibold">
                     {stat.label}
                   </div>
-                  <div className="text-xs text-steel-gray">{stat.description}</div>
+                  <div className="text-xs text-steel-gray leading-snug">{stat.description}</div>
                 </div>
               ))}
             </div>
 
             {/* CTA Buttons */}
             <div
-              className={`flex flex-wrap gap-4 pt-2 ${
+              className={`flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:gap-4 ${
                 isVisible ? 'animate-reveal' : 'opacity-0'
               }`}
               style={isVisible ? { animationDelay: '225ms' } : {}}
             >
-              <a href="#contact" className="btn-primary flex items-center gap-2">
+              <a href="#contact" className="btn-primary flex w-full items-center justify-center gap-2 sm:w-auto">
                 Get a Quote <ArrowRight size={18} />
               </a>
-              <a href="#services" className="btn-outline">
+              <a href="#services" className="btn-outline w-full text-center sm:w-auto">
                 Learn More
               </a>
             </div>

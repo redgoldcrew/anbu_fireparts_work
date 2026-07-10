@@ -97,17 +97,26 @@ export function Footer() {
             </h3>
             <SocialLinks />
           </div>
-          <p className="text-center text-sm text-steel-gray">
-            &copy; {new Date().getFullYear()} {COMPANY.name}. All rights reserved. |{' '}
-            Protecting Lives, Securing Properties. | Website by{' '}
-            <a
-              href="https://redgoldcrew.in/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-silver hover:underline"
-            >
-              redgoldcrew
-            </a>
+          <p className="px-2 text-center text-xs leading-relaxed text-steel-gray sm:text-sm">
+            <span className="block sm:inline">
+              &copy; {new Date().getFullYear()} {COMPANY.name}. All rights reserved.
+            </span>
+            <span className="hidden sm:inline"> | </span>
+            <span className="mt-1 block sm:mt-0 sm:inline">
+              Protecting Lives, Securing Properties.
+            </span>
+            <span className="hidden sm:inline"> | </span>
+            <span className="mt-1 block sm:mt-0 sm:inline">
+              Website by{' '}
+              <a
+                href="https://redgoldcrew.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-silver hover:underline"
+              >
+                redgoldcrew
+              </a>
+            </span>
           </p>
         </div>
       </div>

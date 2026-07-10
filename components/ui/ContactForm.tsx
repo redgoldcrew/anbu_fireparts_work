@@ -219,9 +219,9 @@ export function ContactForm() {
 
       {/* Success Message */}
       {submit.success && (
-        <div className="flex gap-3 p-4 bg-green/10 border border-green rounded-lg text-green">
-          <CheckCircle size={20} className="flex-shrink-0 mt-0.5" />
-          <p className="text-sm">Thank you! We will contact you shortly.</p>
+        <div className="flex gap-3 p-4 bg-navy/5 border border-silver/30 rounded-lg">
+          <CheckCircle size={20} className="flex-shrink-0 mt-0.5 text-green" />
+          <p className="text-sm text-steel-gray">Thank you! We will contact you shortly.</p>
         </div>
       )}
 

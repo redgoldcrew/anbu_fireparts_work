@@ -7,14 +7,13 @@ import { Hero } from '@/components/sections/Hero'
 import { About } from '@/components/sections/About'
 import { Services } from '@/components/sections/Services'
 import { Products } from '@/components/sections/Products'
-import { Certifications } from '@/components/sections/Certifications'
 import { WhyChooseUs } from '@/components/sections/WhyChooseUs'
 import { ServiceAreaBanner } from '@/components/sections/ServiceAreaBanner'
 import { Contact } from '@/components/sections/Contact'
 
 export default function Page() {
   return (
-    <main className="w-full bg-cream">
+    <main className="w-full bg-cream overflow-x-hidden">
       <TopBar />
       <Navbar />
       <HazardTape />
@@ -24,7 +23,6 @@ export default function Page() {
       <Services />
       <HazardTape />
       <Products />
-      <Certifications />
       <WhyChooseUs />
       <ServiceAreaBanner />
       <Contact />

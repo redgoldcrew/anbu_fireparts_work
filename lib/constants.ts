@@ -120,40 +120,6 @@ export const PRODUCTS = [
   },
 ]
 
-// Certifications & Compliance (5 stamps)
-export const CERTIFICATIONS = [
-  {
-    id: 'safety',
-    title: '100% Safety',
-    icon: 'CheckCircle2',
-    description: 'Compliance',
-  },
-  {
-    id: 'quality',
-    title: 'High Quality',
-    icon: 'Award',
-    description: 'Materials Used',
-  },
-  {
-    id: 'price',
-    title: 'Affordable',
-    icon: 'TrendingDown',
-    description: 'Prices',
-  },
-  {
-    id: 'satisfaction',
-    title: 'Customer',
-    icon: 'ThumbsUp',
-    description: 'Satisfaction',
-  },
-  {
-    id: 'service',
-    title: 'Fast & Reliable',
-    icon: 'Zap',
-    description: 'Service',
-  },
-]
-
 // Why Choose Us (8 badges)
 export const WHY_CHOOSE_US = [
   {

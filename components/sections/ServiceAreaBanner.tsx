@@ -26,7 +26,7 @@ export function ServiceAreaBanner() {
       <div className="container-custom relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-6">
           <h2
-            className={`font-['Oswald'] font-700 text-4xl sm:text-5xl lg:text-6xl text-white ${
+            className={`font-['Oswald'] font-700 text-3xl text-white sm:text-5xl lg:text-6xl ${
               isVisible ? 'animate-reveal' : 'opacity-0'
             }`}
           >
@@ -49,7 +49,7 @@ export function ServiceAreaBanner() {
           >
             <a
               href={`tel:${CONTACT.phone[0].replace(/\s/g, '')}`}
-              className="inline-flex items-center gap-2 bg-cream text-red font-['Oswald'] font-700 px-8 py-4 rounded-lg hover:bg-cream/90 transition-colors text-lg"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-cream px-6 py-3.5 text-base font-['Oswald'] font-700 text-red transition-colors hover:bg-cream/90 sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
             >
               📞 Call Us Now
             </a>

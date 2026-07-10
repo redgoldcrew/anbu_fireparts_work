@@ -21,7 +21,7 @@ export function About() {
           <div
             className={`${isVisible ? 'animate-reveal' : 'opacity-0'}`}
           >
-            <div className="bg-gradient-to-br from-navy to-navy-accent rounded-lg p-6 sm:p-8 text-white shadow-lg border border-silver/20">
+            <div className="bg-gradient-to-br from-navy to-navy-accent rounded-lg p-5 text-white shadow-lg border border-silver/20 sm:p-8">
               <div className="space-y-4">
                 <div>
                   <p className="text-xs uppercase tracking-widest text-silver font-mono">
@@ -39,10 +39,10 @@ export function About() {
                   <p className="text-xs uppercase tracking-widest text-silver font-mono">
                     Business Details
                   </p>
-                  <p className="font-['Oswald'] font-600 text-base mt-2">
+                  <p className="font-['Oswald'] font-600 text-base mt-2 break-words sm:text-base">
                     Legal Name: {COMPANY.legalName}
                   </p>
-                  <p className="font-['Oswald'] font-600 text-base mt-2">
+                  <p className="font-['Oswald'] font-600 text-base mt-2 break-words sm:text-base">
                     Trade Name: {COMPANY.name}
                   </p>
                 </div>
@@ -60,7 +60,7 @@ export function About() {
                   <p className="text-xs uppercase tracking-widest text-silver font-mono">
                     Services
                   </p>
-                  <div className="grid grid-cols-2 gap-2 mt-2 text-xs">
+                  <div className="grid grid-cols-1 gap-2 mt-2 text-xs min-[400px]:grid-cols-2">
                     {REGISTRATION.licenses.map((license) => (
                       <span key={license} className="bg-silver/10 px-2 py-1 rounded text-silver">
                         {license}
@@ -98,7 +98,7 @@ export function About() {
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
-              <div className="bg-red/10 rounded-lg p-4">
+              <div className="bg-navy/10 rounded-lg p-4">
                 <div className="text-2xl font-['Oswald'] font-700 text-red">
                   100%
                 </div>
@@ -106,8 +106,8 @@ export function About() {
                   Safety Compliant
                 </p>
               </div>
-              <div className="bg-green/10 rounded-lg p-4">
-                <div className="text-2xl font-['Oswald'] font-700 text-green">
+              <div className="bg-navy/10 rounded-lg p-4">
+                <div className="text-2xl font-['Oswald'] font-700 text-red">
                   24/7
                 </div>
                 <p className="text-sm text-navy font-semibold mt-1">

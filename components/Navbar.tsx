@@ -26,6 +26,13 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
+
   return (
     <>
       <nav
@@ -34,21 +41,21 @@ export function Navbar() {
         } transition-all duration-300`}
       >
         <div className="container-custom">
-          <div className="flex items-center justify-between py-4">
+          <div className="flex items-center justify-between py-3 sm:py-4">
             {/* Logo */}
             <a
               href="#"
-              className="flex items-center gap-2 font-['Oswald'] font-700 text-xl text-red"
+              className="flex min-w-0 items-center gap-2 font-['Oswald'] font-700 text-base text-red sm:text-xl"
             >
               <Image
                 src="/icon.jpg"
                 alt={`${COMPANY.shortName} logo`}
                 width={40}
                 height={40}
-                className="rounded-full"
+                className="h-8 w-8 shrink-0 rounded-full sm:h-10 sm:w-10"
                 priority
               />
-              <span>{COMPANY.shortName}</span>
+              <span className="truncate">{COMPANY.shortName}</span>
             </a>
 
             {/* Desktop Navigation */}
@@ -82,12 +89,12 @@ export function Navbar() {
 
           {/* Mobile Navigation */}
           {isOpen && (
-            <div className="md:hidden pb-4 border-t border-navy-accent">
+            <div className="md:hidden border-t border-navy-accent pb-4 pt-2">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="block py-2 text-white hover:text-silver transition-colors"
+                  className="block rounded-md px-2 py-3 text-base text-white transition-colors hover:bg-navy-accent hover:text-silver"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
@@ -95,7 +102,7 @@ export function Navbar() {
               ))}
               <a
                 href="#contact"
-                className="block mt-3 btn-primary py-2 px-4 text-center text-sm"
+                className="btn-primary mt-3 block py-3 px-4 text-center text-sm"
                 onClick={() => setIsOpen(false)}
               >
                 Get Quote
