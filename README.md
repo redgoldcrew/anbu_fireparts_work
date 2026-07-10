@@ -6,7 +6,7 @@ A modern, responsive marketing website for Anbu Fire Part Works, providing compr
 
 - **Fully Responsive Design**: Mobile-first approach with beautiful layouts on all devices
 - **Smooth Animations**: Scroll-triggered reveal and stagger animations for engaging user experience
-- **Contact Form**: Integrated EmailJS for direct inquiries with validation
+- **Contact Form**: Sends inquiries via Gmail SMTP (Nodemailer)
 - **SEO Optimized**: Proper metadata, structured data, and accessibility standards
 - **Accessibility**: WCAG 2.1 AA compliance with proper ARIA labels and focus management
 - **Modern Tech Stack**: Built with Next.js 16, React 19, Tailwind CSS 4, and TypeScript
@@ -30,7 +30,7 @@ A modern, responsive marketing website for Anbu Fire Part Works, providing compr
 - **Framework**: Next.js 16 with App Router
 - **Styling**: Tailwind CSS 4 with custom design tokens
 - **UI Components**: Lucide React icons
-- **Email**: EmailJS for contact form submissions
+- **Email**: Nodemailer with Gmail SMTP for contact form submissions
 - **Animation**: CSS animations with Intersection Observer API
 - **Type Safety**: TypeScript
 
@@ -58,7 +58,7 @@ pnpm install
 cp .env.example .env.local
 ```
 
-4. Add your EmailJS credentials to `.env.local`
+4. Add your Gmail SMTP credentials to `.env.local` (see below)
 
 ### Development
 
@@ -79,39 +79,45 @@ pnpm build
 pnpm start
 ```
 
-## EmailJS Setup
+## Gmail SMTP Setup
 
 To enable the contact form:
 
-1. Visit [EmailJS](https://www.emailjs.com/)
-2. Create a free account
-3. Set up an email service (Gmail recommended)
-4. Create an email template with the following variables:
-   - `to_email`
-   - `from_name`
-   - `from_email`
-   - `phone`
-   - `service`
-   - `message`
-5. Get your:
-   - Service ID
-   - Template ID
-   - Public Key
-6. Add these to your `.env.local` file:
+1. Enable **2-Step Verification** on your Google account
+2. Create an **App Password** at [Google App Passwords](https://myaccount.google.com/apppasswords)
+3. Add these to `.env.local`:
 
 ```
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+EMAIL=yourgmail@gmail.com
+APP_PASSWORD=your_16_char_app_password
 ```
+
+Optional — set a different inbox for form submissions:
+
+```
+MAIL_TO=anbufireparts10@gmail.com
+```
+
+**Do not use your regular Gmail password.** Use an App Password only.
+
+For Netlify, add `EMAIL` and `APP_PASSWORD` under **Site configuration → Environment variables**.
 
 ## Deployment
 
-### Vercel (Recommended)
+### Netlify
+
+1. Push your code to GitHub
+2. Import the repository in [Netlify](https://app.netlify.com)
+3. Add environment variables:
+   - `EMAIL`
+   - `APP_PASSWORD`
+4. Deploy — `netlify.toml` configures the Next.js build automatically
+
+### Vercel
 
 1. Push your code to GitHub
 2. Connect your repository to Vercel
-3. Add environment variables in Vercel dashboard
+3. Add `EMAIL` and `APP_PASSWORD` in the Vercel dashboard
 4. Deploy automatically
 
 ### Other Platforms

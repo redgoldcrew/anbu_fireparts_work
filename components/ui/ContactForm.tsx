@@ -1,7 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import emailjs from '@emailjs/browser'
+import { useState } from 'react'
 import { Loader2, CheckCircle, AlertCircle } from 'lucide-react'
 
 interface FormState {
@@ -44,14 +43,6 @@ export function ContactForm() {
     error: null,
   })
 
-  useEffect(() => {
-    // Initialize EmailJS
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-    if (publicKey) {
-      emailjs.init(publicKey)
-    }
-  }, [])
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -87,21 +78,17 @@ export function ContactForm() {
     setSubmit({ loading: true, success: false, error: null })
 
     try {
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
-
-      if (!serviceId || !templateId) {
-        throw new Error('EmailJS configuration missing')
-      }
-
-      await emailjs.send(serviceId, templateId, {
-        to_email: 'anbufireparts10@gmail.com',
-        from_name: form.name,
-        from_email: form.email,
-        phone: form.phone,
-        service: form.service,
-        message: form.message,
+      const response = await fetch('/api/send-mail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
       })
+
+      const data = (await response.json()) as { success?: boolean; error?: string }
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error ?? 'Failed to send message. Please try again.')
+      }
 
       setSubmit({
         loading: false,
@@ -110,7 +97,6 @@ export function ContactForm() {
       })
       setForm(INITIAL_FORM)
 
-      // Reset success message after 5 seconds
       setTimeout(() => {
         setSubmit({ loading: false, success: false, error: null })
       }, 5000)
