@@ -4,8 +4,8 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Anbu Fire Part Works | Fire Safety & Engineering Solutions, Tamil Nadu',
-  description: 'Fire extinguisher sales, fire alarm systems, fire hydrant pipeline work and statutory fire buckets serving all over Tamil Nadu. Fully certified fire safety solutions.',
-  generator: 'v0.app',
+  description: 'Anbu Fire Part Works provides fire extinguisher sales, refilling, servicing, fire alarm systems, hydrant installation, AMC, and complete fire safety solutions in Madurai and across Tamil Nadu. Contact us today for reliable fire protection services.',
+  keywords:'Best Fire Extinguisher Dealer in Madurai, Fire Extinguisher Refilling Near Me, Fire Safety Equipment Supplier Near Me, Fire Alarm Installation Company, Fire Hydrant Installation Services, Fire Safety AMC Services, Industrial Fire Safety Solutions, Commercial Fire Protection Services, Office Fire Safety Equipment, Factory Fire Safety Systems',
   openGraph: {
     title: 'Anbu Fire Part Works | Fire Safety & Engineering',
     description: 'Complete fire safety solutions across Tamil Nadu',
