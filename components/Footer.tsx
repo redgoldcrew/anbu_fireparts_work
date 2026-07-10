@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin } from 'lucide-react'
+import { SocialLinks } from '@/components/SocialLinks'
 import { COMPANY, CONTACT, FOOTER } from '@/lib/constants'
 
 export function Footer() {
@@ -90,9 +91,23 @@ export function Footer() {
 
         {/* Divider */}
         <div className="border-t border-navy-accent pt-8">
+          <div className="mb-6">
+            <h3 className="font-['Oswald'] font-700 text-lg mb-4 text-amber text-center">
+              {FOOTER.social.title}
+            </h3>
+            <SocialLinks />
+          </div>
           <p className="text-center text-sm text-steel-gray">
-            &copy; {new Date().getFullYear()} {COMPANY.name}. All rights reserved. | 
-            <span className="ml-2">Protecting Lives, Securing Properties</span>
+            &copy; {new Date().getFullYear()} {COMPANY.name}. All rights reserved. |{' '}
+            Protecting Lives, Securing Properties. | Website by{' '}
+            <a
+              href="https://github.com/redgoldcrew"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber hover:underline"
+            >
+              redgoldcrew
+            </a>
           </p>
         </div>
       </div>

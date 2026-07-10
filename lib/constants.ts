@@ -15,6 +15,13 @@ export const CONTACT = {
   state: 'Tamil Nadu',
 }
 
+export const SOCIAL = {
+  whatsapp: 'https://wa.me/918508518004',
+  instagram: 'https://www.instagram.com/anbu_fire_part_works/',
+  facebook: 'https://www.facebook.com/profile.php?id=61591348457803',
+  email: 'mailto:anbufireparts10@gmail.com',
+}
+
 // Business Registration
 export const REGISTRATION = {
   gstin: '33BZEPG1040A1ZE',
@@ -283,9 +290,10 @@ export const FOOTER = {
   social: {
     title: 'Connect',
     links: [
-      { label: 'WhatsApp', href: 'https://wa.me/918508518004' },
-      { label: 'Phone', href: 'tel:+918508518004' },
-      { label: 'Email', href: 'mailto:anbufireparts10@gmail.com' },
+      { label: 'WhatsApp', href: SOCIAL.whatsapp },
+      { label: 'Instagram', href: SOCIAL.instagram },
+      { label: 'Facebook', href: SOCIAL.facebook },
+      { label: 'Email', href: SOCIAL.email },
     ],
   },
 }

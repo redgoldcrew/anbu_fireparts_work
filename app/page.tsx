@@ -2,6 +2,7 @@ import { TopBar } from '@/components/TopBar'
 import { Navbar } from '@/components/Navbar'
 import { HazardTape } from '@/components/HazardTape'
 import { Footer } from '@/components/Footer'
+import { WhatsAppFloat } from '@/components/WhatsAppFloat'
 import { Hero } from '@/components/sections/Hero'
 import { About } from '@/components/sections/About'
 import { Services } from '@/components/sections/Services'
@@ -29,6 +30,7 @@ export default function Page() {
       <Contact />
       <HazardTape />
       <Footer />
+      <WhatsAppFloat />
     </main>
   )
 }

@@ -19,7 +19,8 @@ export const metadata: Metadata = {
     description: 'Fire safety and engineering solutions',
   },
   icons: {
-    icon: '/icon.svg',
+    icon: '/icon.jpg',
+    apple: '/icon.jpg',
   },
 }
 

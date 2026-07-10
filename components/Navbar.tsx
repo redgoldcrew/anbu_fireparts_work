@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { COMPANY } from '@/lib/constants'
 
@@ -39,7 +40,14 @@ export function Navbar() {
               href="#"
               className="flex items-center gap-2 font-['Oswald'] font-700 text-xl text-amber"
             >
-              <span className="text-2xl">🔥</span>
+              <Image
+                src="/icon.jpg"
+                alt={`${COMPANY.shortName} logo`}
+                width={40}
+                height={40}
+                className="rounded-full"
+                priority
+              />
               <span>{COMPANY.shortName}</span>
             </a>
 
