@@ -141,6 +141,31 @@ html {
     transform: rotate(5deg) scale(1.05);
     border-style: solid;
   }
+
+  .product-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(244, 161, 0, 0.45) rgba(18, 37, 68, 0.9);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .product-scroll::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .product-scroll::-webkit-scrollbar-track {
+    background: rgba(18, 37, 68, 0.9);
+    border-radius: 9999px;
+    margin-inline: max(1rem, calc((100vw - 80rem) / 2 + 2rem));
+  }
+
+  .product-scroll::-webkit-scrollbar-thumb {
+    background: rgba(244, 161, 0, 0.45);
+    border-radius: 9999px;
+  }
+
+  .product-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(244, 161, 0, 0.75);
+  }
 }
 
 @keyframes reveal {
