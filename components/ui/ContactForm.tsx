@@ -126,7 +126,7 @@ export function ContactForm() {
           value={form.name}
           onChange={handleChange}
           placeholder="Your full name"
-          className="w-full px-4 py-3 border border-steel-gray/30 rounded-lg focus-ring focus:ring-2 focus:ring-amber focus:border-transparent"
+          className="w-full px-4 py-3 border border-steel-gray/30 rounded-lg focus-ring focus:ring-2 focus:ring-silver focus:border-transparent"
           required
           disabled={submit.loading}
         />
@@ -144,7 +144,7 @@ export function ContactForm() {
           value={form.phone}
           onChange={handleChange}
           placeholder="+91 XXXXXXXXXX"
-          className="w-full px-4 py-3 border border-steel-gray/30 rounded-lg focus-ring focus:ring-2 focus:ring-amber focus:border-transparent"
+          className="w-full px-4 py-3 border border-steel-gray/30 rounded-lg focus-ring focus:ring-2 focus:ring-silver focus:border-transparent"
           required
           disabled={submit.loading}
         />
@@ -162,7 +162,7 @@ export function ContactForm() {
           value={form.email}
           onChange={handleChange}
           placeholder="your@email.com"
-          className="w-full px-4 py-3 border border-steel-gray/30 rounded-lg focus-ring focus:ring-2 focus:ring-amber focus:border-transparent"
+          className="w-full px-4 py-3 border border-steel-gray/30 rounded-lg focus-ring focus:ring-2 focus:ring-silver focus:border-transparent"
           required
           disabled={submit.loading}
         />
@@ -178,7 +178,7 @@ export function ContactForm() {
           name="service"
           value={form.service}
           onChange={handleChange}
-          className="w-full px-4 py-3 border border-steel-gray/30 rounded-lg focus-ring focus:ring-2 focus:ring-amber focus:border-transparent appearance-none bg-white"
+          className="w-full px-4 py-3 border border-steel-gray/30 rounded-lg focus-ring focus:ring-2 focus:ring-silver focus:border-transparent appearance-none bg-white"
           required
           disabled={submit.loading}
         >
@@ -203,7 +203,7 @@ export function ContactForm() {
           onChange={handleChange}
           placeholder="Tell us about your fire safety needs..."
           rows={5}
-          className="w-full px-4 py-3 border border-steel-gray/30 rounded-lg focus-ring focus:ring-2 focus:ring-amber focus:border-transparent resize-none"
+          className="w-full px-4 py-3 border border-steel-gray/30 rounded-lg focus-ring focus:ring-2 focus:ring-silver focus:border-transparent resize-none"
           required
           disabled={submit.loading}
         />

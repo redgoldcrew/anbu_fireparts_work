@@ -30,7 +30,7 @@ export function Navbar() {
     <>
       <nav
         className={`${
-          isSticky ? 'fixed top-0 left-0 right-0 z-40 bg-navy text-cream shadow-lg' : 'relative bg-navy text-cream'
+          isSticky ? 'fixed top-0 left-0 right-0 z-40 bg-navy text-white shadow-lg' : 'relative bg-navy text-white'
         } transition-all duration-300`}
       >
         <div className="container-custom">
@@ -38,7 +38,7 @@ export function Navbar() {
             {/* Logo */}
             <a
               href="#"
-              className="flex items-center gap-2 font-['Oswald'] font-700 text-xl text-amber"
+              className="flex items-center gap-2 font-['Oswald'] font-700 text-xl text-red"
             >
               <Image
                 src="/icon.jpg"
@@ -57,7 +57,7 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-cream hover:text-amber transition-colors font-medium"
+                  className="text-white hover:text-silver transition-colors font-medium"
                 >
                   {link.label}
                 </a>
@@ -87,7 +87,7 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="block py-2 text-cream hover:text-amber transition-colors"
+                  className="block py-2 text-white hover:text-silver transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}

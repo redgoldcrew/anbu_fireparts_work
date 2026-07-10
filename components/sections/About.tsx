@@ -21,10 +21,10 @@ export function About() {
           <div
             className={`${isVisible ? 'animate-reveal' : 'opacity-0'}`}
           >
-            <div className="bg-gradient-to-br from-navy to-navy-accent rounded-lg p-6 sm:p-8 text-cream shadow-lg border border-amber/20">
+            <div className="bg-gradient-to-br from-navy to-navy-accent rounded-lg p-6 sm:p-8 text-white shadow-lg border border-silver/20">
               <div className="space-y-4">
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-amber font-mono">
+                  <p className="text-xs uppercase tracking-widest text-silver font-mono">
                     Legal Name
                   </p>
                   <p className="text-lg font-['Oswald'] font-700">
@@ -36,7 +36,7 @@ export function About() {
                 </div>
 
                 <div className="border-t border-navy-accent pt-4">
-                  <p className="text-xs uppercase tracking-widest text-amber font-mono">
+                  <p className="text-xs uppercase tracking-widest text-silver font-mono">
                     Business Details
                   </p>
                   <p className="font-['Oswald'] font-600 text-base mt-2">
@@ -48,7 +48,7 @@ export function About() {
                 </div>
 
                 <div className="border-t border-navy-accent pt-4">
-                  <p className="text-xs uppercase tracking-widest text-amber font-mono">
+                  <p className="text-xs uppercase tracking-widest text-silver font-mono">
                     Registered Office
                   </p>
                   <p className="text-sm mt-2 leading-relaxed">
@@ -57,12 +57,12 @@ export function About() {
                 </div>
 
                 <div className="border-t border-navy-accent pt-4">
-                  <p className="text-xs uppercase tracking-widest text-amber font-mono">
+                  <p className="text-xs uppercase tracking-widest text-silver font-mono">
                     Services
                   </p>
                   <div className="grid grid-cols-2 gap-2 mt-2 text-xs">
                     {REGISTRATION.licenses.map((license) => (
-                      <span key={license} className="bg-amber/10 px-2 py-1 rounded text-amber">
+                      <span key={license} className="bg-silver/10 px-2 py-1 rounded text-silver">
                         {license}
                       </span>
                     ))}
@@ -98,7 +98,7 @@ export function About() {
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
-              <div className="bg-amber/10 rounded-lg p-4">
+              <div className="bg-red/10 rounded-lg p-4">
                 <div className="text-2xl font-['Oswald'] font-700 text-red">
                   100%
                 </div>

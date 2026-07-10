@@ -51,14 +51,14 @@ export function Certifications() {
                 <div className="relative w-28 h-28 flex items-center justify-center">
                   {/* Outer Circle Border */}
                   <div
-                    className="absolute inset-0 rounded-full border-4 border-amber"
+                    className="absolute inset-0 rounded-full border-4 border-silver"
                     style={{
-                      boxShadow: '0 0 0 2px #F7F5F0, 0 0 0 6px #F4A100',
+                      boxShadow: '0 0 0 2px #F1F2F4, 0 0 0 6px #B7BBC0',
                     }}
                   />
 
                   {/* Inner Circle */}
-                  <div className="absolute inset-2 rounded-full bg-white border-2 border-amber flex items-center justify-center flex-col gap-1">
+                  <div className="absolute inset-2 rounded-full bg-white border-2 border-silver flex items-center justify-center flex-col gap-1">
                     <Icon size={32} className="text-red" />
                     <div className="text-center">
                       <p className="text-xs font-bold text-navy">

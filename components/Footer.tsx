@@ -4,12 +4,12 @@ import { COMPANY, CONTACT, FOOTER } from '@/lib/constants'
 
 export function Footer() {
   return (
-    <footer className="bg-navy text-cream">
+    <footer className="bg-navy text-white">
       <div className="container-custom py-12 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="font-['Oswald'] font-700 text-lg mb-4 text-amber">
+            <h3 className="font-['Oswald'] font-700 text-lg mb-4 text-silver">
               {COMPANY.shortName}
             </h3>
             <p className="text-sm text-steel-gray leading-relaxed mb-4">
@@ -17,14 +17,14 @@ export function Footer() {
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex gap-2">
-                <Phone size={16} className="text-amber flex-shrink-0" />
-                <a href={`tel:${CONTACT.phone[0].replace(/\s/g, '')}`} className="hover:text-amber transition-colors">
+                <Phone size={16} className="text-silver flex-shrink-0" />
+                <a href={`tel:${CONTACT.phone[0].replace(/\s/g, '')}`} className="hover:text-silver transition-colors">
                   {CONTACT.phone[0]}
                 </a>
               </div>
               <div className="flex gap-2">
-                <Phone size={16} className="text-amber flex-shrink-0" />
-                <a href={`tel:${CONTACT.phone[1].replace(/\s/g, '')}`} className="hover:text-amber transition-colors">
+                <Phone size={16} className="text-silver flex-shrink-0" />
+                <a href={`tel:${CONTACT.phone[1].replace(/\s/g, '')}`} className="hover:text-silver transition-colors">
                   {CONTACT.phone[1]}
                 </a>
               </div>
@@ -33,7 +33,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-['Oswald'] font-700 text-lg mb-4 text-amber">
+            <h3 className="font-['Oswald'] font-700 text-lg mb-4 text-silver">
               {FOOTER.services.title}
             </h3>
             <ul className="space-y-2">
@@ -41,7 +41,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-steel-gray hover:text-amber transition-colors"
+                    className="text-sm text-steel-gray hover:text-silver transition-colors"
                   >
                     {link.label}
                   </a>
@@ -52,7 +52,7 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h3 className="font-['Oswald'] font-700 text-lg mb-4 text-amber">
+            <h3 className="font-['Oswald'] font-700 text-lg mb-4 text-silver">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -60,7 +60,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-steel-gray hover:text-amber transition-colors"
+                    className="text-sm text-steel-gray hover:text-silver transition-colors"
                   >
                     {link.label}
                   </a>
@@ -71,17 +71,17 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-['Oswald'] font-700 text-lg mb-4 text-amber">
+            <h3 className="font-['Oswald'] font-700 text-lg mb-4 text-silver">
               Contact Info
             </h3>
             <div className="space-y-3">
               <div className="flex gap-2 text-sm">
-                <MapPin size={16} className="text-amber flex-shrink-0 mt-0.5" />
+                <MapPin size={16} className="text-silver flex-shrink-0 mt-0.5" />
                 <p className="text-steel-gray">{CONTACT.address}</p>
               </div>
               <div className="flex gap-2 text-sm">
-                <Mail size={16} className="text-amber flex-shrink-0" />
-                <a href={`mailto:${CONTACT.email}`} className="text-steel-gray hover:text-amber transition-colors">
+                <Mail size={16} className="text-silver flex-shrink-0" />
+                <a href={`mailto:${CONTACT.email}`} className="text-steel-gray hover:text-silver transition-colors">
                   {CONTACT.email}
                 </a>
               </div>
@@ -92,7 +92,7 @@ export function Footer() {
         {/* Divider */}
         <div className="border-t border-navy-accent pt-8">
           <div className="mb-6">
-            <h3 className="font-['Oswald'] font-700 text-lg mb-4 text-amber text-center">
+            <h3 className="font-['Oswald'] font-700 text-lg mb-4 text-silver text-center">
               {FOOTER.social.title}
             </h3>
             <SocialLinks />
@@ -104,7 +104,7 @@ export function Footer() {
               href="https://redgoldcrew.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-amber hover:underline"
+              className="text-silver hover:underline"
             >
               redgoldcrew
             </a>

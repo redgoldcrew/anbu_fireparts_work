@@ -21,11 +21,11 @@ export function WhyChooseUs() {
       <div className="container-custom">
         {/* Section Header */}
         <div className="mb-12 lg:mb-16 text-center max-w-2xl mx-auto">
-          <p className={`section-kicker text-amber ${isVisible ? 'animate-reveal' : 'opacity-0'}`}>
+          <p className={`section-kicker text-silver ${isVisible ? 'animate-reveal' : 'opacity-0'}`}>
             Your Safety Partner
           </p>
           <h2
-            className={`font-['Oswald'] font-700 text-3xl sm:text-4xl lg:text-5xl text-cream mt-2 ${
+            className={`font-['Oswald'] font-700 text-3xl sm:text-4xl lg:text-5xl text-white mt-2 ${
               isVisible ? 'animate-reveal' : 'opacity-0'
             }`}
             style={isVisible ? { animationDelay: '75ms' } : {}}
@@ -56,10 +56,10 @@ export function WhyChooseUs() {
                 key={item.id}
                 className="badge-stamp rounded-full p-6 bg-navy-accent flex flex-col items-center text-center group"
               >
-                <div className="h-14 w-14 rounded-full bg-amber/20 group-hover:bg-amber/30 flex items-center justify-center mb-4 transition-colors">
-                  <Icon size={24} className="text-amber" />
+                <div className="h-14 w-14 rounded-full bg-silver/20 group-hover:bg-silver/30 flex items-center justify-center mb-4 transition-colors">
+                  <Icon size={24} className="text-red" />
                 </div>
-                <h3 className="font-['Oswald'] font-600 text-lg text-cream mb-2">
+                <h3 className="font-['Oswald'] font-600 text-lg text-white mb-2">
                   {item.title}
                 </h3>
                 <p className="text-sm text-steel-gray">

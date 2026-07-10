@@ -58,7 +58,7 @@ export function Services() {
               >
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-amber/10">
+                    <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-red/10">
                       <Icon size={24} className="text-red" />
                     </div>
                   </div>

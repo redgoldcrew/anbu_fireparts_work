@@ -101,11 +101,11 @@ export function Products() {
           )}
         >
           <div className="mb-8 lg:mb-10 text-center max-w-2xl mx-auto">
-            <p className={`section-kicker text-amber ${isVisible ? 'animate-reveal' : 'opacity-0'}`}>
+            <p className={`section-kicker text-silver ${isVisible ? 'animate-reveal' : 'opacity-0'}`}>
               Our Offerings
             </p>
             <h2
-              className={`font-['Oswald'] font-700 text-3xl sm:text-4xl lg:text-5xl text-cream mt-2 ${
+              className={`font-['Oswald'] font-700 text-3xl sm:text-4xl lg:text-5xl text-white mt-2 ${
                 isVisible ? 'animate-reveal' : 'opacity-0'
               }`}
               style={isVisible ? { animationDelay: '75ms' } : {}}
@@ -146,8 +146,8 @@ export function Products() {
                   key={product.id}
                   className="w-[min(18rem,calc(100vw-4rem))] flex-none sm:w-72"
                 >
-                  <div className="bg-navy-accent rounded-lg overflow-hidden border border-amber/20 hover:border-amber/40 transition-colors group h-full">
-                    <div className="bg-gradient-to-br from-amber/10 to-red/10 h-48 flex items-center justify-center group-hover:from-amber/20 group-hover:to-red/20 transition-colors">
+                  <div className="bg-navy-accent rounded-lg overflow-hidden border border-silver/20 hover:border-silver/40 transition-colors group h-full">
+                    <div className="bg-gradient-to-br from-silver/10 to-red/10 h-48 flex items-center justify-center group-hover:from-silver/20 group-hover:to-red/20 transition-colors">
                       <div className="text-center">
                         <Flame size={48} className="text-red/50 mx-auto mb-2" />
                         <p className="text-sm text-steel-gray font-medium">
@@ -158,10 +158,10 @@ export function Products() {
 
                     <div className="p-6 space-y-4">
                       <div className="flex items-baseline justify-between gap-2">
-                        <h3 className="font-['Oswald'] font-700 text-2xl text-amber">
+                        <h3 className="font-['Oswald'] font-700 text-2xl text-silver">
                           {product.capacity}
                         </h3>
-                        <span className="text-xs font-mono px-2 py-1 bg-red text-cream rounded">
+                        <span className="text-xs font-mono px-2 py-1 bg-red text-white rounded">
                           {product.badge}
                         </span>
                       </div>
@@ -192,7 +192,7 @@ export function Products() {
               aria-label="Product scroll progress"
             >
               <div
-                className="h-full rounded-full bg-amber/70"
+                className="h-full rounded-full bg-silver/70"
                 style={{ width: `${scrollProgress * 100}%` }}
               />
             </div>

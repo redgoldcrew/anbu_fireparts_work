@@ -17,7 +17,7 @@ const GaugeSVG = ({ isVisible }: { isVisible: boolean }) => (
       }
     `}</style>
     <svg
-      viewBox="0 0 340 220"
+      viewBox="0 0 340 240"
       className="w-full h-auto"
       preserveAspectRatio="xMidYMid meet"
     >
@@ -25,7 +25,7 @@ const GaugeSVG = ({ isVisible }: { isVisible: boolean }) => (
       <path
         d="M40 190 A130 130 0 0 1 300 190"
         fill="none"
-        stroke="#22314f"
+        stroke="#4B4F57"
         strokeLinecap="round"
         strokeWidth="20"
       />
@@ -34,16 +34,16 @@ const GaugeSVG = ({ isVisible }: { isVisible: boolean }) => (
       <path
         d="M40 190 A130 130 0 0 1 130 68"
         fill="none"
-        stroke="#D32F2F"
+        stroke="#D9251F"
         strokeLinecap="round"
         strokeWidth="20"
       />
       
-      {/* Safety Segments - Amber (Caution) */}
+      {/* Safety Segments - Silver (Caution) */}
       <path
         d="M130 68 A130 130 0 0 1 210 68"
         fill="none"
-        stroke="#F4A100"
+        stroke="#B7BBC0"
         strokeLinecap="round"
         strokeWidth="20"
       />
@@ -80,7 +80,7 @@ const GaugeSVG = ({ isVisible }: { isVisible: boolean }) => (
         fontWeight="bold"
         textAnchor="middle"
         x="170"
-        y="205"
+        y="225"
       >
         SITE SAFETY LEVEL
       </text>
@@ -106,17 +106,17 @@ export function Hero() {
           {/* Left Column */}
           <div className="space-y-6">
             <div className={`${isVisible ? 'animate-reveal' : 'opacity-0'}`}>
-              <p className="section-kicker text-amber">
+              <p className="section-kicker text-silver">
                 Complete Fire Safety Solutions
               </p>
-              <h1 className="font-['Oswald'] font-700 text-4xl sm:text-5xl lg:text-6xl text-cream mt-2 leading-tight text-balance">
+              <h1 className="font-['Oswald'] font-700 text-4xl sm:text-5xl lg:text-6xl text-white mt-2 leading-tight text-balance">
                 Professional Fire Safety
-                <span className="text-amber"> & Engineering</span>
+                <span className="text-silver"> & Engineering</span>
               </h1>
             </div>
 
             <p
-              className={`section-description text-cream/90 leading-relaxed ${
+              className={`section-description text-white/90 leading-relaxed ${
                 isVisible ? 'animate-reveal' : 'opacity-0'
               }`}
               style={isVisible ? { animationDelay: '75ms' } : {}}
@@ -134,10 +134,10 @@ export function Hero() {
             >
               {HERO_STATS.map((stat) => (
                 <div key={stat.number} className="bg-navy-accent/50 rounded-lg p-4 backdrop-blur-sm">
-                  <div className="text-2xl font-['Oswald'] font-700 text-amber">
+                  <div className="text-2xl font-['Oswald'] font-700 text-red">
                     {stat.number}
                   </div>
-                  <div className="text-xs text-cream/70 uppercase font-semibold">
+                  <div className="text-xs text-white/70 uppercase font-semibold">
                     {stat.label}
                   </div>
                   <div className="text-xs text-steel-gray">{stat.description}</div>

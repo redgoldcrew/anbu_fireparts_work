@@ -47,7 +47,7 @@ export function Contact() {
             style={isVisible ? { animationDelay: '225ms' } : {}}
           >
             {/* Phone */}
-            <div className="bg-white rounded-lg p-6 border border-amber/20">
+            <div className="bg-white rounded-lg p-6 border border-silver/20">
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
                   <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-red/10">
@@ -77,11 +77,11 @@ export function Contact() {
             </div>
 
             {/* Email */}
-            <div className="bg-white rounded-lg p-6 border border-amber/20">
+            <div className="bg-white rounded-lg p-6 border border-silver/20">
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-amber/10">
-                    <Mail size={24} className="text-amber" />
+                  <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-red/10">
+                    <Mail size={24} className="text-red" />
                   </div>
                 </div>
                 <div>
@@ -99,7 +99,7 @@ export function Contact() {
             </div>
 
             {/* Address */}
-            <div className="bg-white rounded-lg p-6 border border-amber/20">
+            <div className="bg-white rounded-lg p-6 border border-silver/20">
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
                   <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-green/10">
@@ -118,7 +118,7 @@ export function Contact() {
             </div>
 
             {/* Hours */}
-            <div className="bg-white rounded-lg p-6 border border-amber/20">
+            <div className="bg-white rounded-lg p-6 border border-silver/20">
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
                   <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-navy/10">
@@ -142,7 +142,7 @@ export function Contact() {
 
           {/* Right - Contact Form */}
           <div
-            className={`lg:col-span-2 bg-white rounded-lg p-8 border border-amber/20 ${
+            className={`lg:col-span-2 bg-white rounded-lg p-8 border border-silver/20 ${
               isVisible ? 'animate-reveal' : 'opacity-0'
             }`}
             style={isVisible ? { animationDelay: '300ms' } : {}}

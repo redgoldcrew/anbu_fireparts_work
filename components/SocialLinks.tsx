@@ -51,7 +51,7 @@ export function SocialLinks({ className = '', iconClassName = 'h-5 w-5' }: Socia
           target={href.startsWith('mailto:') ? undefined : '_blank'}
           rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
           aria-label={label}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-navy-accent bg-navy-accent text-cream transition-colors hover:border-amber hover:bg-amber hover:text-navy"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-navy-accent bg-navy-accent text-white transition-colors hover:border-red hover:bg-red hover:text-white"
         >
           <Icon className={iconClassName} />
         </a>

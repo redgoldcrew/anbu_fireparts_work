@@ -6,18 +6,18 @@
   --font-oswald: 'Oswald', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
   
-  --color-navy: #0A1930;
-  --color-navy-accent: #122544;
-  --color-red: #D32F2F;
-  --color-red-dark: #A31515;
-  --color-amber: #F4A100;
-  --color-cream: #F7F5F0;
-  --color-steel-gray: #8A94A6;
+  --color-navy: #1A1B1F;
+  --color-navy-accent: #25272C;
+  --color-red: #D9251F;
+  --color-red-dark: #8E1712;
+  --color-silver: #B7BBC0;
+  --color-cream: #F1F2F4;
+  --color-steel-gray: #4B4F57;
   --color-green: #1E8E5A;
-  --color-ink: #101820;
+  --color-ink: #1A1B1F;
   
-  --color-background: #F7F5F0;
-  --color-foreground: #101820;
+  --color-background: #F1F2F4;
+  --color-foreground: #1A1B1F;
   
   --radius: 0.375rem;
 }
@@ -27,7 +27,7 @@
 }
 
 html {
-  background-color: #F7F5F0;
+  background-color: #F1F2F4;
   scroll-behavior: smooth;
 }
 
@@ -47,17 +47,17 @@ html {
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 rounded-md font-semibold text-base transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 bg-red text-cream hover:bg-red-dark;
-    outline-color: var(--color-amber);
+    @apply px-6 py-3 rounded-md font-semibold text-base transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 bg-red text-white hover:bg-red-dark;
+    outline-color: var(--color-silver);
   }
   
   .btn-secondary {
-    @apply px-6 py-3 rounded-md font-semibold text-base transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 bg-navy text-cream hover:bg-navy-accent;
-    outline-color: var(--color-amber);
+    @apply px-6 py-3 rounded-md font-semibold text-base transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 bg-navy text-white hover:bg-navy-accent;
+    outline-color: var(--color-silver);
   }
   
   .btn-outline {
-    @apply px-6 py-3 rounded-md font-semibold text-base transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 border-2 border-red text-red hover:bg-red hover:text-cream;
+    @apply px-6 py-3 rounded-md font-semibold text-base transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 border-2 border-red text-red hover:bg-red hover:text-white;
     outline-color: var(--color-red);
   }
   
@@ -67,12 +67,12 @@ html {
   
   .hazard-tape {
     @apply h-[14px] w-full;
-    background: repeating-linear-gradient(45deg, #F4A100 0px, #F4A100 10px, #101820 10px, #101820 20px);
+    background: repeating-linear-gradient(45deg, #D9251F 0px, #D9251F 10px, #1A1B1F 10px, #1A1B1F 20px);
   }
   
   .section-kicker {
     @apply font-semibold text-sm uppercase tracking-widest;
-    color: var(--color-amber);
+    color: var(--color-red);
     font-family: 'Oswald', sans-serif;
   }
   
@@ -116,7 +116,7 @@ html {
   
   .focus-ring {
     @apply focus-visible:outline-2 focus-visible:outline-offset-2;
-    outline-color: var(--color-amber);
+    outline-color: var(--color-silver);
   }
   
   .technical-dot-pattern {
@@ -129,11 +129,11 @@ html {
   }
   
   .glow-red:hover {
-    box-shadow: 0 0 20px rgba(211, 47, 47, 0.35);
+    box-shadow: 0 0 20px rgba(217, 37, 31, 0.35);
   }
   
   .badge-stamp {
-    border: 2px dashed var(--color-amber);
+    border: 2px dashed var(--color-silver);
     transition: all 0.3s ease;
   }
   
@@ -144,7 +144,7 @@ html {
 
   .product-scroll {
     scrollbar-width: thin;
-    scrollbar-color: rgba(244, 161, 0, 0.45) rgba(18, 37, 68, 0.9);
+    scrollbar-color: rgba(183, 187, 192, 0.45) rgba(37, 39, 44, 0.9);
     -webkit-overflow-scrolling: touch;
   }
 
@@ -153,18 +153,18 @@ html {
   }
 
   .product-scroll::-webkit-scrollbar-track {
-    background: rgba(18, 37, 68, 0.9);
+    background: rgba(37, 39, 44, 0.9);
     border-radius: 9999px;
     margin-inline: max(1rem, calc((100vw - 80rem) / 2 + 2rem));
   }
 
   .product-scroll::-webkit-scrollbar-thumb {
-    background: rgba(244, 161, 0, 0.45);
+    background: rgba(183, 187, 192, 0.45);
     border-radius: 9999px;
   }
 
   .product-scroll::-webkit-scrollbar-thumb:hover {
-    background: rgba(244, 161, 0, 0.75);
+    background: rgba(183, 187, 192, 0.75);
   }
 }
 

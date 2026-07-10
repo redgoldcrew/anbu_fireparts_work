@@ -26,7 +26,7 @@ export function ServiceAreaBanner() {
       <div className="container-custom relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-6">
           <h2
-            className={`font-['Oswald'] font-700 text-4xl sm:text-5xl lg:text-6xl text-cream ${
+            className={`font-['Oswald'] font-700 text-4xl sm:text-5xl lg:text-6xl text-white ${
               isVisible ? 'animate-reveal' : 'opacity-0'
             }`}
           >
@@ -34,7 +34,7 @@ export function ServiceAreaBanner() {
           </h2>
 
           <p
-            className={`text-lg sm:text-xl text-cream/90 leading-relaxed ${
+            className={`text-lg sm:text-xl text-white/90 leading-relaxed ${
               isVisible ? 'animate-reveal' : 'opacity-0'
             }`}
             style={isVisible ? { animationDelay: '75ms' } : {}}
