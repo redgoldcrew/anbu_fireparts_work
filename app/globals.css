@@ -6,18 +6,20 @@
   --font-oswald: 'Oswald', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
   
-  --color-navy: #1A1B1F;
-  --color-navy-accent: #25272C;
+  --color-navy: #2E3239;
+  --color-navy-accent: #3A4049;
+  --color-navy-deep: #1F2329;
   --color-red: #D9251F;
-  --color-red-dark: #8E1712;
+  --color-red-dark: #B51E19;
   --color-silver: #B7BBC0;
-  --color-cream: #F1F2F4;
-  --color-steel-gray: #4B4F57;
+  --color-silver-muted: #8E9399;
+  --color-cream: #F0F1F4;
+  --color-steel-gray: #6E737C;
   --color-green: #1E8E5A;
-  --color-ink: #1A1B1F;
+  --color-ink: #2E3239;
   
-  --color-background: #F1F2F4;
-  --color-foreground: #1A1B1F;
+  --color-background: #F0F1F4;
+  --color-foreground: #2E3239;
   
   --radius: 0.375rem;
 }
@@ -27,7 +29,7 @@
 }
 
 html {
-  background-color: #F1F2F4;
+  background-color: #F0F1F4;
   scroll-behavior: smooth;
 }
 
@@ -67,7 +69,7 @@ html {
   
   .hazard-tape {
     @apply h-[14px] w-full;
-    background: repeating-linear-gradient(45deg, #D9251F 0px, #D9251F 10px, #1A1B1F 10px, #1A1B1F 20px);
+    background: repeating-linear-gradient(45deg, #D9251F 0px, #D9251F 10px, #1F2329 10px, #1F2329 20px);
   }
   
   .section-kicker {
@@ -144,7 +146,7 @@ html {
 
   .product-scroll {
     scrollbar-width: thin;
-    scrollbar-color: rgba(183, 187, 192, 0.45) rgba(37, 39, 44, 0.9);
+    scrollbar-color: rgba(183, 187, 192, 0.5) rgba(58, 64, 73, 0.85);
     -webkit-overflow-scrolling: touch;
   }
 
@@ -153,7 +155,7 @@ html {
   }
 
   .product-scroll::-webkit-scrollbar-track {
-    background: rgba(37, 39, 44, 0.9);
+    background: rgba(58, 64, 73, 0.85);
     border-radius: 9999px;
     margin-inline: max(1rem, calc((100vw - 80rem) / 2 + 2rem));
   }

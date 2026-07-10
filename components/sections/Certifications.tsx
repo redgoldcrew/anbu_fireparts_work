@@ -53,7 +53,7 @@ export function Certifications() {
                   <div
                     className="absolute inset-0 rounded-full border-4 border-silver"
                     style={{
-                      boxShadow: '0 0 0 2px #F1F2F4, 0 0 0 6px #B7BBC0',
+                      boxShadow: '0 0 0 2px #F0F1F4, 0 0 0 6px #B7BBC0',
                     }}
                   />
 

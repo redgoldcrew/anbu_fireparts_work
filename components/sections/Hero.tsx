@@ -25,7 +25,7 @@ const GaugeSVG = ({ isVisible }: { isVisible: boolean }) => (
       <path
         d="M40 190 A130 130 0 0 1 300 190"
         fill="none"
-        stroke="#4B4F57"
+        stroke="#6E737C"
         strokeLinecap="round"
         strokeWidth="20"
       />
@@ -98,7 +98,7 @@ export function Hero() {
     <section
       ref={ref}
       id="hero"
-      className="relative pt-12 pb-20 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-32 bg-navy-accent text-white overflow-hidden technical-dot-pattern"
+      className="relative pt-12 pb-20 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-32 bg-gradient-to-br from-navy via-navy to-navy-accent text-white overflow-hidden technical-dot-pattern"
     >
 
       <div className="container-custom relative z-10">
