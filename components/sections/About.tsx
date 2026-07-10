@@ -25,7 +25,7 @@ export function About() {
               <div className="space-y-4">
                 <div>
                   <p className="text-xs uppercase tracking-widest text-silver font-mono">
-                    Legal Name
+                    Registration Numbers
                   </p>
                   <p className="text-lg font-['Oswald'] font-700">
                     {REGISTRATION.gstin}
